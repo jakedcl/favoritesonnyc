@@ -8,9 +8,8 @@ import { StatusLine } from "./StatusLine";
 const strips = [
   { key: "name", kind: "name" as const, text: restaurant.name },
   { key: "tag", kind: "line" as const, text: restaurant.tagline },
-  { key: "street", kind: "line" as const, text: "1210 forest avenue" },
   { key: "status", kind: "line" as const, text: null },
-  { key: "notice", kind: "line" as const, text: restaurant.notice.title },
+  { key: "street", kind: "line" as const, text: "1210 forest avenue" },
 ];
 
 const drift = [
@@ -18,7 +17,6 @@ const drift = [
   { x: -12, y: 14, r: 1.2, ease: 0.08 },
   { x: 9, y: 7, r: -0.8, ease: 0.16 },
   { x: -14, y: -11, r: 1.8, ease: 0.06 },
-  { x: 12, y: 10, r: -1.3, ease: 0.11 },
 ];
 
 const introMs = 1600;

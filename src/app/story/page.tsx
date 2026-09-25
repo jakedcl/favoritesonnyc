@@ -35,7 +35,7 @@ export default function StoryPage() {
           Rosebank.
         </p>
         <p>
-          <a href={restaurant.press}>click here for the SILive story.</a>
+          <a href={restaurant.press}>Click here for the SILive story.</a>
         </p>
       </div>
     </Sheet>
