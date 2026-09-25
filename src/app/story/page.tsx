@@ -24,18 +24,18 @@ export default function StoryPage() {
       <div className="prose">
         <p>
           Favorite Son is Danny Ippolito and Graceanne Belmonte-Ippolito’s
-          pizzeria on Forest Avenue. He is the owner, the pizzaiolo, and the
+          pizzeria on Forest Avenue. Danny is the owner, the pizzaiolo, and the
           sommelier. The name is for his mother, Maryann, from her only son.
         </p>
         <p>
           The pies are naturally leavened, New York style, baked in an electric
-          Moretti Forni. The wine is natural. He spent about six years on the
+          Moretti Forni. The wine is natural. Danny spent about six years on the
           dough before the doors opened in September 2026, after kitchens at
           Carbone and Locanda Verde, and after Bin 5, the wine bar he had in
           Rosebank.
         </p>
         <p>
-          <a href={restaurant.press}>Pamela Silvestri wrote about the opening for SILive.</a>
+          <a href={restaurant.press}>click here for the SILive story.</a>
         </p>
       </div>
     </Sheet>
