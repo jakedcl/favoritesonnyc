@@ -12,6 +12,7 @@ export default function Home() {
       <Nav />
       <div className="home-lead">
         <p>whole pies, 14 inches, cut into six.</p>
+        <p>{restaurant.notice.title}.</p>
         <p className="home-actions">
           <Link href="/menu">see the menu</Link>
           <a href={restaurant.maps.google}>directions</a>
