@@ -23,7 +23,7 @@ export function serviceStatus(now = new Date()): ServiceStatus {
   const closes = 22 * 60;
 
   if (!OPEN_DAYS.has(weekday)) {
-    return { live: "5–10", quiet: "opens wednesday at 5" };
+    return { live: "wednesday–monday, 5–10", quiet: "opens wednesday at 5" };
   }
 
   if (minutes >= opens && minutes < closes) {
@@ -35,8 +35,8 @@ export function serviceStatus(now = new Date()): ServiceStatus {
   }
 
   if (weekday === "Mon") {
-    return { live: "5–10", quiet: "opens wednesday at 5" };
+    return { live: "wednesday–monday, 5–10", quiet: "opens wednesday at 5" };
   }
 
-  return { live: "5–10", quiet: "opens tomorrow at 5" };
+  return { live: "wednesday–monday, 5–10", quiet: "opens tomorrow at 5" };
 }
