@@ -1,6 +1,11 @@
 import { defineField, defineType } from "sanity";
 import { IceCreamIcon } from "@sanity/icons/IceCream";
 
+const sectionLabels: Record<string, string> = {
+  cocktails: "Cocktails",
+  beers: "Beer",
+};
+
 export const pour = defineType({
   name: "pour",
   title: "Cocktail or beer",
@@ -8,21 +13,40 @@ export const pour = defineType({
   icon: IceCreamIcon,
   fields: [
     defineField({
+      name: "status",
+      title: "Available tonight?",
+      type: "string",
+      options: {
+        list: [
+          { title: "Yes — show on the list", value: "on" },
+          { title: "No — off tonight (86)", value: "off" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "on",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "name",
+      title: "Name",
       type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "detail",
+      title: "Ingredients / note",
       type: "string",
+      description: "Optional. Leave blank for beer if you want.",
     }),
     defineField({
       name: "price",
+      title: "Price",
       type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "section",
+      title: "Cocktail or beer?",
       type: "string",
       options: {
         list: [
@@ -34,22 +58,10 @@ export const pour = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "status",
-      type: "string",
-      options: {
-        list: [
-          { title: "On the list", value: "on" },
-          { title: "Off tonight", value: "off" },
-        ],
-        layout: "radio",
-      },
-      initialValue: "on",
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: "order",
+      title: "Sort order",
       type: "number",
-      description: "Lower numbers show first.",
+      description: "Lower number = higher on the list. 0, then 1, then 2…",
       initialValue: 0,
       validation: (rule) => rule.required().integer(),
     }),
@@ -57,11 +69,10 @@ export const pour = defineType({
   preview: {
     select: { title: "name", detail: "detail", section: "section", status: "status" },
     prepare({ title, detail, section, status }) {
+      const part = sectionLabels[section] ?? section;
       return {
-        title,
-        subtitle: [section, status === "off" ? "off tonight" : detail]
-          .filter(Boolean)
-          .join(" · "),
+        title: status === "off" ? `${title} (off tonight)` : title,
+        subtitle: [part, detail].filter(Boolean).join(" · "),
       };
     },
   },

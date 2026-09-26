@@ -3,33 +3,37 @@ import { ImageIcon } from "@sanity/icons/Image";
 
 export const photo = defineType({
   name: "photo",
-  title: "Photo",
+  title: "Homepage photo",
   type: "document",
   icon: ImageIcon,
   fields: [
     defineField({
       name: "image",
+      title: "Photo",
       type: "image",
       options: { hotspot: true },
+      description: "Click the image to crop if needed.",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "caption",
+      title: "Label under the photo",
       type: "string",
-      description: "Short label under the photo, like “signature”.",
+      description: "Short. Example: signature",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "alt",
-      title: "Alt text",
+      title: "Describe the photo",
       type: "string",
-      description: "Describe the photo for screen readers.",
+      description: "For people who can’t see the image. Example: sausage and onion pie in the box.",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "order",
+      title: "Sort order",
       type: "number",
-      description: "Lower numbers show first in the strip.",
+      description: "Lower number = earlier in the photo strip.",
       initialValue: 0,
       validation: (rule) => rule.required().integer(),
     }),

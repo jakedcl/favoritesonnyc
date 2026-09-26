@@ -1,29 +1,55 @@
 import { defineField, defineType } from "sanity";
 import { LemonIcon } from "@sanity/icons/Lemon";
 
+const sectionLabels: Record<string, string> = {
+  smallPlates: "Small plates",
+  redPies: "Red pies",
+  whitePies: "White pies",
+  desserts: "Dolci",
+};
+
 export const dish = defineType({
   name: "dish",
-  title: "Dish",
+  title: "Menu item",
   type: "document",
   icon: LemonIcon,
   fields: [
     defineField({
+      name: "status",
+      title: "Available tonight?",
+      type: "string",
+      options: {
+        list: [
+          { title: "Yes — show on the menu", value: "on" },
+          { title: "No — off tonight (86)", value: "off" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "on",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "name",
+      title: "Name",
       type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "detail",
+      title: "Ingredients / note",
       type: "string",
-      description: "Ingredients or a short note under the name.",
+      description: "Shows under the name. Example: tomato, mozz, sausage, onion",
     }),
     defineField({
       name: "price",
+      title: "Price",
       type: "string",
+      description: "Just the number as it should look. Example: 26 or 5/ball",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "section",
+      title: "Which part of the menu?",
       type: "string",
       options: {
         list: [
@@ -38,27 +64,16 @@ export const dish = defineType({
     }),
     defineField({
       name: "nuts",
-      title: "Contains nuts",
+      title: "Contains nuts?",
       type: "boolean",
+      description: "Adds a * next to the name.",
       initialValue: false,
     }),
     defineField({
-      name: "status",
-      type: "string",
-      options: {
-        list: [
-          { title: "On the menu", value: "on" },
-          { title: "Off tonight", value: "off" },
-        ],
-        layout: "radio",
-      },
-      initialValue: "on",
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: "order",
+      title: "Sort order",
       type: "number",
-      description: "Lower numbers show first.",
+      description: "Lower number = higher on the list. 0, then 1, then 2…",
       initialValue: 0,
       validation: (rule) => rule.required().integer(),
     }),
@@ -76,11 +91,10 @@ export const dish = defineType({
   preview: {
     select: { title: "name", detail: "detail", section: "section", status: "status" },
     prepare({ title, detail, section, status }) {
+      const part = sectionLabels[section] ?? section;
       return {
-        title,
-        subtitle: [section, status === "off" ? "off tonight" : detail]
-          .filter(Boolean)
-          .join(" · "),
+        title: status === "off" ? `${title} (off tonight)` : title,
+        subtitle: [part, detail].filter(Boolean).join(" · "),
       };
     },
   },

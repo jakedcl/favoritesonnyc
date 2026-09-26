@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  serverExternalPackages: ["sanity", "next-sanity", "@sanity/vision"],
+  serverExternalPackages: ["sanity", "next-sanity"],
   async redirects() {
     return [
       { source: "/admin", destination: "/studio", permanent: false },
