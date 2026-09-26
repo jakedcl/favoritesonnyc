@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["sanity", "next-sanity", "@sanity/vision"],
   async redirects() {
     return [
-      { source: "/studio", destination: "/admin", permanent: false },
-      { source: "/studio/:path*", destination: "/admin/:path*", permanent: false },
+      { source: "/admin", destination: "/studio", permanent: false },
+      { source: "/admin/:path*", destination: "/studio/:path*", permanent: false },
     ];
   },
 };
