@@ -17,7 +17,7 @@ export function StickyBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pathname.startsWith("/studio")) return null;
+  if (pathname.startsWith("/admin") || pathname.startsWith("/studio")) return null;
 
   return (
     <div className={on ? "sticky-bar sticky-bar-on" : "sticky-bar"}>
