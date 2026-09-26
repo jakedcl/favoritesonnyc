@@ -1,8 +1,11 @@
+export type ItemStatus = "on" | "off";
+
 export type Dish = {
   name: string;
   detail?: string;
   price: string;
   nuts?: boolean;
+  status?: ItemStatus;
 };
 
 export const smallPlates: Dish[] = [
@@ -97,6 +100,7 @@ export type Wine = {
   note: string;
   glass: number;
   bottle: number;
+  status?: ItemStatus;
 };
 
 export const sparkling: Wine[] = [
@@ -192,6 +196,7 @@ export type Pour = {
   name: string;
   detail: string;
   price: string;
+  status?: ItemStatus;
 };
 
 export const cocktails: Pour[] = [

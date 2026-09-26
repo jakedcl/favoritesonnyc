@@ -1,8 +1,8 @@
 import { unavailable } from "@/content/site";
 import type { Dish } from "@/content/menu";
 
-export function MenuRow({ name, detail, price, nuts }: Dish) {
-  const off = unavailable.includes(name);
+export function MenuRow({ name, detail, price, nuts, status }: Dish) {
+  const off = status === "off" || unavailable.includes(name);
 
   return (
     <div className="menu-row">

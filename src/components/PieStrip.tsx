@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { photos } from "@/content/site";
+import type { Photo } from "@/content/site";
 
-export function PieStrip() {
+export function PieStrip({ photos }: { photos: Photo[] }) {
   const track = useRef<HTMLDivElement>(null);
   const pos = useRef(0);
   const vel = useRef(0.4);
@@ -84,6 +84,8 @@ export function PieStrip() {
   function endDrag() {
     drag.current = null;
   }
+
+  if (photos.length === 0) return null;
 
   return (
     <div
