@@ -10,7 +10,7 @@ export default defineConfig({
   title: "favorite son",
   projectId,
   dataset,
-  basePath: "/studio",
+  basePath: "/admin",
   plugins: [structureTool({ structure }), visionTool({ defaultApiVersion: apiVersion })],
   schema: { types: schemaTypes },
 });
