@@ -623,6 +623,44 @@ button:focus-visible {
   }
 }
 
+.empty-copy {
+  margin: 1rem 0;
+  color: var(--soft);
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.text-button:hover,
+.text-button:focus-visible {
+  text-decoration: underline dotted;
+}
+
+.studio-root {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: #fff;
+}
+
+.studio-root,
+.studio-root :where(p, h1, h2, h3, a, li, span, figcaption) {
+  text-shadow: none;
+}
+
+body:has(.studio-root)::before,
+body:has(.studio-root) .skip {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .strip,
   .pie-mark-home,

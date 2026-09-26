@@ -4,8 +4,11 @@ import { Nav } from "@/components/Nav";
 import { PieStrip } from "@/components/PieStrip";
 import { SignStrips } from "@/components/SignStrips";
 import { restaurant } from "@/content/site";
+import { getPhotos } from "@/lib/cms";
 
-export default function Home() {
+export default async function Home() {
+  const photos = await getPhotos();
+
   return (
     <main>
       <SignStrips />
@@ -19,7 +22,7 @@ export default function Home() {
           <a href={`tel:${restaurant.phoneTel}`}>call</a>
         </p>
       </div>
-      <PieStrip />
+      <PieStrip photos={photos} />
       <div className="home-foot">
         <Footer />
       </div>

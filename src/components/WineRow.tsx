@@ -1,6 +1,8 @@
 import type { Wine } from "@/content/menu";
 
-export function WineRow({ name, meta, note, glass, bottle }: Wine) {
+export function WineRow({ name, meta, note, glass, bottle, status }: Wine) {
+  const off = status === "off";
+
   return (
     <div className="menu-row wine-row">
       <div>
@@ -9,9 +11,15 @@ export function WineRow({ name, meta, note, glass, bottle }: Wine) {
         <p className="menu-note">{note}</p>
       </div>
       <p className="menu-price">
-        {glass}
-        <span className="price-split"> / </span>
-        {bottle}
+        {off ? (
+          "off tonight"
+        ) : (
+          <>
+            {glass}
+            <span className="price-split"> / </span>
+            {bottle}
+          </>
+        )}
       </p>
     </div>
   );
