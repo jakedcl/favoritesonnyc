@@ -1,21 +1,25 @@
 import { useId } from "react";
+import { PIE_CORE, PIE_MASK } from "@/marks/pie-geometry";
 
-// Smooth tubing traced from the original mark's centerlines.
-// Ring: the ink's own circle, open from about 12 o'clock to about 2 o'clock.
-// Slice: tip at the center, narrow sector toward 1 o'clock, outer edge the arc.
-// Crust: the same two arcs and square radial ends, set in closer to the slice.
-const CIRCLE = "M249 141 A126.4 126.4 0 1 1 139 66";
-const SLICE = "M130 195 L156 57 A127 127 0 0 1 238 126 Z";
-const CRUST =
-  "M163.5 15.8 A132.3 132.3 0 0 1 267.9 108.3 L255.8 115.5 A148.3 148.3 0 0 0 159.5 37.8 Z";
-
-function Strokes() {
+// The shape is the locked trace of public/logo.png in src/marks/pie-mark.svg.
+// Neon red, the white core, and the glow are only a style on that mask.
+function Mask() {
   return (
-    <>
-      <path d={CIRCLE} />
-      <path d={SLICE} />
-      <path d={CRUST} strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit={8} />
-    </>
+    <g fill="#e10c16" fillRule="evenodd">
+      <path d={PIE_MASK.ring} />
+      <path d={PIE_MASK.slice} />
+      <path d={PIE_MASK.crust} />
+    </g>
+  );
+}
+
+function Core() {
+  return (
+    <g fill="none" stroke="#fff2f0" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+      {PIE_CORE.map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </g>
   );
 }
 
@@ -63,14 +67,10 @@ export function PieMark({ className = "" }: { className?: string }) {
         </filter>
       </defs>
       <svg viewBox="0 0 286 320" x="0" y="0" width="286" height="320" overflow="visible" filter={`url(#${glowId})`}>
-        <g stroke="#e10c16" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round">
-          <Strokes />
-        </g>
+        <Mask />
       </svg>
       <svg viewBox="0 0 286 320" x="0" y="0" width="286" height="320" overflow="visible" filter={`url(#${coreId})`}>
-        <g stroke="#fff2f0" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-          <Strokes />
-        </g>
+        <Core />
       </svg>
     </svg>
   );
