@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { PIE_TUBE } from "@/marks/pie-geometry";
 
-// Centerlines are the smoothed locked trace in src/marks/pie-mark.svg.
+// Paths in src/marks/pie-mark.svg are true arcs and straight lines.
 // Each path is one solid tube. Neon red, the white core, and the glow are only a style.
 const TUBES = [PIE_TUBE.ring, PIE_TUBE.slice, PIE_TUBE.crust] as const;
 
