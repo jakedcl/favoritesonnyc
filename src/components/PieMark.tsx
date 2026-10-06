@@ -1,10 +1,13 @@
 import { useId } from "react";
 
-// Smooth glass tubing in the same place as the original mark:
-// an open ring, a slice pulled to the upper right, and a crust arc on that slice.
-const CIRCLE = "M249 141 A127 127 0 1 1 139 66";
-const SLICE = "M130 195 L158 56 L238 126 Z";
-const CRUST = "M164 28 C196 12 246 22 262 104";
+// Smooth tubing traced from the original mark's centerlines.
+// Ring: the ink's own circle, open from about 12 o'clock to about 2 o'clock.
+// Slice: tip at the center, narrow sector toward 1 o'clock, outer edge the arc.
+// Crust: closed band, outer and inner arcs joined by rounded caps.
+const CIRCLE = "M249 141 A126.4 126.4 0 1 1 139 66";
+const SLICE = "M130 195 L156 57 A127 127 0 0 1 238 126 Z";
+const CRUST =
+  "M169 5 A143.9 143.9 0 0 1 270 82 A14.8 14.8 0 0 1 254 107 A150.7 150.7 0 0 0 169 38 A17.7 17.7 0 0 1 169 5 Z";
 
 function Strokes() {
   return (
