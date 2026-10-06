@@ -89,12 +89,10 @@ button:focus-visible {
 
 .pie-mark {
   display: block;
-  width: clamp(5.35rem, 16vw, 6.85rem);
+  width: 4.75rem;
   height: auto;
-  margin: 0 auto 0.15rem;
+  margin: 0 auto 1.25rem;
   overflow: visible;
-  text-shadow: none;
-  flex: none;
 }
 
 .pie-mark-home {
@@ -102,72 +100,10 @@ button:focus-visible {
 }
 
 .pie-mark-tiny {
-  width: 1.7rem;
+  width: 1.45rem;
   height: auto;
   margin: 0;
   animation: none;
-}
-
-.pie-hardware,
-.pie-neon {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.pie-arm {
-  stroke: #211a16;
-  stroke-width: 2.7;
-}
-
-.pie-arm-lite {
-  stroke: #8a7d72;
-  stroke-width: 0.8;
-}
-
-.pie-glow {
-  stroke: #ff2a34;
-  stroke-width: 4.4;
-  opacity: 0.14;
-}
-
-.pie-tube {
-  stroke: #ff313a;
-  stroke-width: 3.05;
-}
-
-.pie-core {
-  stroke: #fff7f4;
-  stroke-width: 1.05;
-}
-
-.pie-dot {
-  stroke: #ff3840;
-  stroke-width: 1.9;
-}
-
-.pie-dot-core {
-  stroke: #fff6f3;
-  stroke-width: 0.65;
-}
-
-.pie-neon {
-  overflow: visible;
-  filter:
-    drop-shadow(0 0 1px rgba(255, 236, 230, 0.9))
-    drop-shadow(0 0 2px rgba(255, 36, 44, 0.82))
-    drop-shadow(0 0 6px rgba(255, 12, 28, 0.34));
-}
-
-.pie-mark-tiny .pie-glow {
-  stroke-width: 3.2;
-  opacity: 0.1;
-}
-
-.pie-mark-tiny .pie-neon {
-  filter:
-    drop-shadow(0 0 1px rgba(255, 90, 90, 0.8))
-    drop-shadow(0 0 2px rgba(210, 12, 28, 0.42));
 }
 
 .sign {

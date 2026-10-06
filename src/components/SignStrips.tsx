@@ -115,7 +115,7 @@ export function SignStrips() {
 
   return (
     <div className="sign">
-      <PieMark className="pie-mark pie-mark-home" bracket />
+      <PieMark className="pie-mark pie-mark-home" />
       <div className="sign-board">
         <div className="sign-papers">
           {strips.map((strip, index) => (
