@@ -89,7 +89,7 @@ button:focus-visible {
 
 .pie-mark {
   display: block;
-  width: 4.75rem;
+  width: 5.85rem;
   height: auto;
   margin: 0 auto 1.25rem;
   overflow: visible;
@@ -100,7 +100,7 @@ button:focus-visible {
 }
 
 .pie-mark-tiny {
-  width: 1.45rem;
+  width: 1.79rem;
   height: auto;
   margin: 0;
   animation: none;
@@ -113,7 +113,7 @@ button:focus-visible {
   gap: 0.7rem;
   width: 100%;
   margin: 0 auto;
-  padding: 2.5rem 0 0.5rem;
+  padding: 3.1rem 0 0.5rem;
 }
 
 .sign-papers {

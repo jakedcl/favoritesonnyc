@@ -3,18 +3,18 @@ import { useId } from "react";
 // Smooth tubing traced from the original mark's centerlines.
 // Ring: the ink's own circle, open from about 12 o'clock to about 2 o'clock.
 // Slice: tip at the center, narrow sector toward 1 o'clock, outer edge the arc.
-// Crust: closed band, outer and inner arcs joined by rounded caps.
+// Crust: the same two arcs, brought closer, with straight radial ends.
 const CIRCLE = "M249 141 A126.4 126.4 0 1 1 139 66";
 const SLICE = "M130 195 L156 57 A127 127 0 0 1 238 126 Z";
 const CRUST =
-  "M169 5 A143.9 143.9 0 0 1 270 82 A14.8 14.8 0 0 1 254 107 A150.7 150.7 0 0 0 169 38 A17.7 17.7 0 0 1 169 5 Z";
+  "M175.0 11.1 A139.3 139.3 0 0 1 269.4 91.8 L256.0 101.3 A155.3 155.3 0 0 0 169.6 33.4 Z";
 
 function Strokes() {
   return (
     <>
       <path d={CIRCLE} />
       <path d={SLICE} />
-      <path d={CRUST} />
+      <path d={CRUST} strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit={8} />
     </>
   );
 }
