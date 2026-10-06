@@ -1,23 +1,15 @@
 import { useId } from "react";
-import { PIE_CORE, PIE_MASK } from "@/marks/pie-geometry";
+import { PIE_TUBE } from "@/marks/pie-geometry";
 
-// The shape is the locked trace of public/logo.png in src/marks/pie-mark.svg.
-// Neon red, the white core, and the glow are only a style on that mask.
-function Mask() {
-  return (
-    <g fill="#e10c16" fillRule="evenodd">
-      <path d={PIE_MASK.ring} />
-      <path d={PIE_MASK.slice} />
-      <path d={PIE_MASK.crust} />
-    </g>
-  );
-}
+// Centerlines are the smoothed locked trace in src/marks/pie-mark.svg.
+// Each path is one solid tube. Neon red, the white core, and the glow are only a style.
+const TUBES = [PIE_TUBE.ring, PIE_TUBE.slice, PIE_TUBE.crust] as const;
 
-function Core() {
+function Tubes({ core = false }: { core?: boolean }) {
   return (
-    <g fill="none" stroke="#fff2f0" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-      {PIE_CORE.map((d) => (
-        <path key={d} d={d} />
+    <g fill="none" stroke={core ? "#fff2f0" : "#e10c16"} strokeLinecap="round" strokeLinejoin="round">
+      {TUBES.map((tube) => (
+        <path key={tube.d} d={tube.d} strokeWidth={core ? 4 : tube.width} />
       ))}
     </g>
   );
@@ -67,10 +59,10 @@ export function PieMark({ className = "" }: { className?: string }) {
         </filter>
       </defs>
       <svg viewBox="0 0 286 320" x="0" y="0" width="286" height="320" overflow="visible" filter={`url(#${glowId})`}>
-        <Mask />
+        <Tubes />
       </svg>
       <svg viewBox="0 0 286 320" x="0" y="0" width="286" height="320" overflow="visible" filter={`url(#${coreId})`}>
-        <Core />
+        <Tubes core />
       </svg>
     </svg>
   );
