@@ -258,6 +258,10 @@ button:focus-visible {
   margin-top: 0.4rem;
 }
 
+.home-notice span {
+  white-space: nowrap;
+}
+
 .home-lead .home-actions {
   margin-top: 1rem;
 }
