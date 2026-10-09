@@ -89,9 +89,10 @@ button:focus-visible {
 
 .pie-mark {
   display: block;
-  width: 4.75rem;
+  width: 5.85rem;
   height: auto;
   margin: 0 auto 1.25rem;
+  overflow: visible;
 }
 
 .pie-mark-home {
@@ -99,7 +100,7 @@ button:focus-visible {
 }
 
 .pie-mark-tiny {
-  width: 1.45rem;
+  width: 1.79rem;
   height: auto;
   margin: 0;
   animation: none;
@@ -112,7 +113,7 @@ button:focus-visible {
   gap: 0.7rem;
   width: 100%;
   margin: 0 auto;
-  padding: 2.5rem 0 0.5rem;
+  padding: 3.1rem 0 0.5rem;
 }
 
 .sign-papers {
@@ -202,8 +203,10 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.15rem 0.35rem;
-  margin: 1.35rem 0 0.25rem;
+  gap: 0 0.35rem;
+  margin: 1.35rem auto 0.25rem;
+  width: max-content;
+  max-width: 100%;
 }
 
 .site-nav a {
@@ -240,20 +243,35 @@ button:focus-visible {
 }
 
 .home-lead {
-  width: min(100% - 2rem, 36rem);
-  margin: 1.25rem auto 0;
+  width: min(100% - 1rem, 36rem);
+  margin: 1.5rem auto 0;
   text-align: center;
 }
 
+.home-lead p {
+  margin: 0;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
 .home-lead p + p {
-  margin-top: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+.home-notice span {
+  white-space: nowrap;
+}
+
+.home-lead .home-actions {
+  margin-top: 1rem;
 }
 
 .home-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem 1.25rem;
+  align-items: center;
+  gap: 0.35rem 1rem;
   margin-top: 0.85rem;
 }
 
@@ -314,7 +332,8 @@ button:focus-visible {
   width: min(100%, 52rem);
   margin: 0 auto;
   background: var(--paper);
-  padding: 1.5rem 1.15rem 3rem;
+  padding: 1.35rem 1.15rem 2.25rem;
+  overflow-x: clip;
 }
 
 .sheet-mast h1 {
@@ -342,7 +361,9 @@ button:focus-visible {
 .sheet-mast .site-nav,
 .sheet .home-actions {
   justify-content: flex-start;
-  margin-top: 0.35rem;
+  margin-top: 0.65rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .rule {
@@ -357,14 +378,22 @@ button:focus-visible {
 }
 
 .section-title {
-  margin: 1.4rem 0 0.15rem;
+  margin: 1.15rem 0 0.45rem;
   font-size: 1.35rem;
   font-weight: 600;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.title-note {
+  white-space: nowrap;
 }
 
 .section-note {
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.55rem;
   color: var(--soft);
+  line-height: 1.45;
+  text-wrap: pretty;
 }
 
 .menu-list {
@@ -377,8 +406,12 @@ button:focus-visible {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  padding: 0.72rem 0.15rem;
+  padding: 0.7rem 0.15rem;
   transition: transform 180ms ease;
+}
+
+.menu-row > div {
+  min-width: 0;
 }
 
 .menu-row:hover,
@@ -389,13 +422,16 @@ button:focus-visible {
 .menu-name {
   margin: 0;
   font-weight: 600;
+  text-wrap: pretty;
 }
 
 .menu-detail,
 .menu-meta,
 .menu-note {
-  margin: 0.12rem 0 0;
+  margin: 0.2rem 0 0;
   color: var(--soft);
+  line-height: 1.4;
+  text-wrap: pretty;
 }
 
 .menu-note,
@@ -405,37 +441,64 @@ button:focus-visible {
 
 .menu-price {
   margin: 0;
+  flex: none;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .pie-columns,
 .wine-board {
   display: grid;
-  gap: 0.25rem 2rem;
+  gap: 0.35rem 0;
 }
 
 .column-label {
-  margin: 0.8rem 0 0;
+  margin: 0.65rem 0 0.2rem;
   font-weight: 600;
 }
 
 .allergy {
-  margin-top: 0.5rem;
+  margin-top: 0.9rem;
   color: var(--soft);
   font-size: 0.95rem;
+  line-height: 1.45;
+  max-width: 40rem;
 }
 
 .price-key {
-  margin: 0;
+  margin: 0.15rem 0 0.15rem;
   text-align: right;
   color: var(--soft);
   font-size: 0.92rem;
 }
 
-.visit-grid {
+.visit-grid,
+.story-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.15rem;
+}
+
+.visit-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.visit-copy > p {
+  margin: 0;
+}
+
+.visit-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--soft);
+  line-height: 1.45;
+}
+
+.visit-notes p {
+  margin: 0;
 }
 
 .visit-photo {
@@ -452,7 +515,7 @@ button:focus-visible {
 .story-photo {
   position: relative;
   aspect-ratio: 4 / 5;
-  margin: 0.5rem 0 1rem;
+  margin: 0;
   background: var(--wall);
 }
 
@@ -462,16 +525,17 @@ button:focus-visible {
 }
 
 .prose p {
-  margin: 0 0 0.9rem;
-  max-width: 38rem;
+  margin: 0 0 1rem;
+  max-width: 40rem;
+  line-height: 1.5;
 }
 
-.visit-phone {
-  margin-top: 0.85rem;
+.prose p:last-child {
+  margin-bottom: 0;
 }
 
 .hours-list {
-  margin: 0.4rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -479,25 +543,28 @@ button:focus-visible {
 .hours-list li {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.28rem 0;
-  max-width: 18rem;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 0.32rem 0;
 }
 
 .site-footer {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  margin-top: 1.75rem;
+  padding-bottom: 0.25rem;
 }
 
 .site-footer p {
-  margin: 0.2rem 0;
+  margin: 0.28rem 0;
+  line-height: 1.4;
+  text-wrap: balance;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1rem;
-  margin-top: 0.6rem;
+  align-items: center;
+  gap: 0.15rem 1.15rem;
+  margin-top: 0.45rem;
 }
 
 .footer-links a {
@@ -507,8 +574,8 @@ button:focus-visible {
 }
 
 .home-foot {
-  width: min(100% - 2rem, 36rem);
-  margin: 0.5rem auto 2.5rem;
+  width: min(100% - 1rem, 36rem);
+  margin: 0.75rem auto 2.5rem;
 }
 
 .sticky-bar {
@@ -550,7 +617,18 @@ button:focus-visible {
 
 .missing {
   width: min(100% - 2rem, 36rem);
-  margin: 4rem auto;
+  margin: 4rem auto 3rem;
+  text-align: center;
+}
+
+.missing h1 {
+  margin: 0 0 0.85rem;
+  text-wrap: balance;
+}
+
+.missing p {
+  margin: 0.35rem 0 0;
+  line-height: 1.45;
 }
 
 @keyframes settle {
@@ -598,28 +676,64 @@ button:focus-visible {
   }
 }
 
-@media (min-width: 800px) {
+@media (max-width: 430px) {
+  .site-nav {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    justify-items: start;
+    column-gap: 1.35rem;
+    row-gap: 0;
+  }
+
+  .sheet-mast .site-nav {
+    justify-content: start;
+  }
+}
+
+@media (min-width: 720px) {
   .sheet {
+    width: min(100% - 2.5rem, 52rem);
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    padding: 2rem 2.25rem 3rem;
+    padding: 2rem 2.25rem 2.5rem;
     border: 1px solid rgba(26, 20, 15, 0.14);
   }
 
-  .pie-columns,
-  .wine-board {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pie-columns > section + section,
-  .wine-board > div + div {
-    border-left: 1px dotted var(--ink);
-    padding-left: 1.5rem;
-  }
-
-  .visit-grid {
+  .visit-grid,
+  .story-grid {
     grid-template-columns: 1fr 0.9fr;
     align-items: start;
+    gap: 1.5rem 1.75rem;
+  }
+
+  .story-photo {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .story-grid .prose {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+@media (min-width: 880px) {
+  .pie-columns,
+  .wine-board {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.7rem;
+  }
+
+  .pie-columns::before,
+  .wine-board::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 1px dotted var(--ink);
   }
 }
 

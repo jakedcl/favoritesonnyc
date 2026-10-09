@@ -15,7 +15,10 @@ export default async function Home() {
       <Nav />
       <div className="home-lead">
         <p>whole pies, 14 inches, cut into six.</p>
-        <p>{restaurant.notice.title}.</p>
+        <p className="home-notice">
+          <span>{`${restaurant.notice.title.split(",")[0]},`}</span>{" "}
+          <span>{`${restaurant.notice.title.split(",").slice(1).join(",").trim()}.`}</span>
+        </p>
         <p className="home-actions">
           <Link href="/menu">see the menu</Link>
           <a href={restaurant.maps.google}>directions</a>
