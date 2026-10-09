@@ -33,7 +33,6 @@ const structuredData = {
   email: restaurant.email,
   telephone: restaurant.phoneTel,
   image: `${restaurant.url}/photos/og.jpg`,
-  acceptsReservations: false,
   address: {
     "@type": "PostalAddress",
     streetAddress: restaurant.address.street,

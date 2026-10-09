@@ -23,7 +23,7 @@ export const restaurant = {
   },
   hoursLabel: "wednesday–monday · 5–10 · closed tuesday",
   notice: {
-    title: "no reservations, no takeout, no slices",
+    title: "no takeout, no slices",
     body: "first come, first served.",
   },
 } as const;
